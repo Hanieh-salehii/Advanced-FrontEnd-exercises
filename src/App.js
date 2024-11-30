@@ -1,7 +1,11 @@
+import Button from "./components/button";
 
 function App() {
   return (
-<p>Start coding babe</p>
+    <>
+      <p className="text-3xl font-bold underline">Start coding babe</p>
+      <Button/>
+    </>
   );
 }
 
