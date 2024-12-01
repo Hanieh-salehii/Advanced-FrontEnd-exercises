@@ -21,11 +21,15 @@ module.exports = {
         "spacing-5": "32px",
       },
       borderRadius: {
-        "radius-0":"50%",
+        "radius-0": "50%",
         "radius-1": "4px",
         "radius-2": "8px",
+
       },
     },
     plugins: [],
   },
 };
+
+
+
