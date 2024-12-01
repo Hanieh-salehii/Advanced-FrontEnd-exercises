@@ -1,14 +1,13 @@
-import Button from "./components/button";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import Main from "./components/main";
 
 function App() {
   return (
     <>
-    <Header/>
-      <p className="text-3xl font-bold underline">Start coding babe</p>
-      <Button name={"test"}/>
-      <Footer/>
+      <Header />
+      <Main />
+      <Footer />
     </>
   );
 }
