@@ -2,7 +2,10 @@ import React from "react";
 const Button = ({ name }) => {
   return (
     <>
-      <button style={{boxShadow:"5px 5px 15px 0px rgba(0,0,0,0.46)"}} className=" w-28 h-12 rounded-lg flex justify-center items-center bg-light-green">
+      <button
+        style={{ boxShadow: "5px 5px 15px 0px rgba(0,0,0,0.46)" }}
+        className=" w-28 h-12 rounded-lg flex justify-center items-center bg-light-green"
+      >
         {name}
       </button>
     </>
