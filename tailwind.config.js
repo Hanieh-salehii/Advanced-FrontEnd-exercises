@@ -8,8 +8,7 @@ module.exports = {
       "dark-beige": "#BC6C25",
       "light-beige": "#DDA15E",
       "light-green": "#606C38",
-      "dark-green": "#ffc82c",
-      "gray-dark": "#283618",
+      "dark-green": "#283618",
     },
     extend: {
       spacing: {

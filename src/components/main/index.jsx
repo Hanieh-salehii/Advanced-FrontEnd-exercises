@@ -1,6 +1,6 @@
 import React from "react";
-import AddItem from "./add-item";
 import ToDoList from "./todo-list";
+import AddItem from "./add-item";
 const Main = () => {
   return (
     <div
