@@ -9,7 +9,7 @@ const EditItem = () => {
         name="to-do-input"
         className="w-9/12 outline-0 bg-light-green rounded-lg flex justify-center items-center px-spacing-3"
       />
-      <Button name="edit task" />
+      <Button name="save task" />
     </div>
   );
 };
