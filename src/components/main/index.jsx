@@ -5,7 +5,7 @@ const Main = () => {
   const [taskList, setTaskList]=useState([])
   const addToList = (newTask) => {
     console.log(newTask);
-    setTaskList([...taskList,newTask])
+    // setTaskList([...taskList,newTask])
   };
   return (
     <div
