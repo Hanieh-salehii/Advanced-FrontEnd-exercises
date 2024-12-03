@@ -12,11 +12,12 @@ const AddItem = ({handleAddTask}) => {
 
   const handleOnclick = () => {
     handleAddTask(addInputValue);
+    setAddInputValue("")
   };
 
   return (
     <div className="flex flex-row justify-center p-spacing-2 w-full sm:w-3/4 md:w-1/2 gap-spacing-4 mb-spacing-4">
-      <Input inputId="add-input" onchangeFunction={handleInputChange} />
+      <Input inputId="add-input" inputValue={addInputValue} onchangeFunction={handleInputChange} />
       <Button name="add task" onclickfunction={handleOnclick} />
     </div>
   );

@@ -4,8 +4,7 @@ import AddItem from "./add-item";
 const Main = () => {
   const [taskList, setTaskList]=useState([])
   const addToList = (newTask) => {
-    console.log(newTask);
-    // setTaskList([...taskList,newTask])
+    setTaskList([...taskList,newTask])
   };
   return (
     <div
@@ -13,7 +12,7 @@ const Main = () => {
       className=" w-screen flex flex-col justify-center items-center bg-light-red"
     >
         <AddItem handleAddTask={addToList}/>
-        <ToDoList/>
+      <ToDoList listOfTasks={taskList}/>
     </div>
   );
 };
