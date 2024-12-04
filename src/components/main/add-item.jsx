@@ -3,11 +3,9 @@ import Button from "../button/index";
 import Input from "../input";
 const AddItem = ({handleAddTask}) => {
   const [addInputValue, setAddInputValue] = useState("");
-  // console.log(addInputValue);
 
   const handleInputChange = (e) => {
     setAddInputValue(e.target.value);
-    // console.log(e.target.value);
   };
 
   const handleOnclick = () => {

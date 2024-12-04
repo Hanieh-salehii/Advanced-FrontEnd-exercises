@@ -14,7 +14,7 @@ const Main = () => {
     >
       <AddItem handleAddTask={addToList} />
       <TaskCounter>{taskList.length}</TaskCounter>
-      <ToDoList listOfTasks={taskList} />
+      <ToDoList listOfTasks={taskList} setListOfTasks={setTaskList}/>
     </div>
   );
 };

@@ -1,6 +1,12 @@
 import React from "react";
 import Button from "../button";
-const ToDoList = ({ listOfTasks }) => {
+const ToDoList = ({ listOfTasks,setListOfTasks }) => {
+  const deleteTask = (task) => {
+    console.log(task);
+    const updatedList = listOfTasks.filter((item) => item !== task);
+    console.log(updatedList);
+    setListOfTasks(updatedList);
+  };
   return (
     <ul className="w-full sm:w-3/4 md:w-1/2 overflow-y-auto max-h-[345px]">
       {listOfTasks.map((task, index) => (
@@ -15,7 +21,12 @@ const ToDoList = ({ listOfTasks }) => {
             {task}
           </span>
           <Button name="edit task" />
-          <Button name="delete task" />
+          <Button
+            name="delete task"
+            onclickfunction={() => {
+              deleteTask(task);
+            }}
+          />
         </li>
       ))}
     </ul>
