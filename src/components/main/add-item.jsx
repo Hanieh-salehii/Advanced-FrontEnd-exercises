@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../button/index";
 import Input from "../input";
-const AddItem = ({handleAddTask}) => {
+const AddItem = ({ handleAddTask }) => {
   const [addInputValue, setAddInputValue] = useState("");
 
   const handleInputChange = (e) => {
@@ -10,13 +10,21 @@ const AddItem = ({handleAddTask}) => {
 
   const handleOnclick = () => {
     handleAddTask(addInputValue);
-    setAddInputValue("")
+    setAddInputValue("");
   };
 
   return (
     <div className="flex flex-row justify-center p-spacing-2 w-full sm:w-3/4 md:w-1/2 gap-spacing-4 mb-spacing-4">
-      <Input inputId="add-input" inputValue={addInputValue} onchangeFunction={handleInputChange} />
-      <Button name="add task" onclickfunction={handleOnclick} disabled={addInputValue === ""} />
+      <Input
+        inputId="add-input"
+        inputValue={addInputValue}
+        onchangeFunction={handleInputChange}
+      />
+      <Button
+        name="add task"
+        onclickfunction={handleOnclick}
+        disabled={addInputValue === ""}
+      />
     </div>
   );
 };

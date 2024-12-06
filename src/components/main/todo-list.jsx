@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../button";
-const ToDoList = ({ listOfTasks,setListOfTasks }) => {
+import EditItem from "./edit-item";
+const ToDoList = ({ listOfTasks, setListOfTasks }) => {
   const deleteTask = (task) => {
-    console.log(task);
     const updatedList = listOfTasks.filter((item) => item !== task);
-    console.log(updatedList);
     setListOfTasks(updatedList);
+    console.log(typeof updatedList);
+    console.log(updatedList);
   };
+
+  const [editValue, setEditValue] = useState("");
+  const [editId, setEditId] = useState(null);
+  const handleEditButton = (task, index) => {
+    // console.log(task);
+    // console.log(index);
+    setEditId(index);
+  };
+  const handleEditInput = (editingValue) => {
+    // console.log(editingValue);
+    setEditValue(editingValue);
+  };
+  const handleSaveButton = (index,task) => {
+    listOfTasks.map(() => {
+      if (editId === index) {
+        console.log(typeof listOfTasks, listOfTasks);
+        const updatedList = listOfTasks.filter((item) => item !== task);        
+        return setListOfTasks([editValue,...updatedList]);
+      } else {
+        return setListOfTasks(listOfTasks);
+      }
+    });
+    setEditId(null);
+    setEditValue("");
+  };
+
   return (
     <ul className="w-full sm:w-3/4 md:w-1/2 overflow-y-auto max-h-[345px]">
       {listOfTasks.map((task, index) => (
@@ -14,19 +41,35 @@ const ToDoList = ({ listOfTasks,setListOfTasks }) => {
           key={index}
           className="flex flex-row justify-center p-spacing-2 mb-spacing-2 gap-spacing-4"
         >
-          <span
-            style={{ boxShadow: "5px 5px 15px 0px rgba(0,0,0,0.46)" }}
-            className="w-9/12 outline-0 bg-light-green rounded-lg flex justify-start items-center px-spacing-3"
-          >
-            {task}
-          </span>
-          <Button name="edit task" />
-          <Button
-            name="delete task"
-            onclickfunction={() => {
-              deleteTask(task);
-            }}
-          />
+          {editId === index ? (
+            <EditItem
+              inputDefaultValue={task}
+              // inputEditedValue={task}
+              inputOnChange={(e) => handleEditInput(e.target.value, index)}
+              saveButton={() => handleSaveButton(index,task)}
+            />
+          ) : (
+            <>
+              <span
+                style={{ boxShadow: "5px 5px 15px 0px rgba(0,0,0,0.46)" }}
+                className="w-9/12 outline-0 bg-light-green rounded-lg flex justify-start items-center px-spacing-3"
+              >
+                {task}
+              </span>
+              <Button
+                name="edit task"
+                onclickfunction={() => {
+                  handleEditButton(task, index);
+                }}
+              />
+              <Button
+                name="delete task"
+                onclickfunction={() => {
+                  deleteTask(task);
+                }}
+              />
+            </>
+          )}
         </li>
       ))}
     </ul>
