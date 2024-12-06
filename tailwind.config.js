@@ -3,12 +3,14 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     colors: {
+      "light-red": "#E26D5C",
       "dark-red": "#4F0806",
-      "light-red": "#780000",
+      "light-beige": "#FFE1A8",
       "dark-beige": "#BC6C25",
-      "light-beige": "#DDA15E",
-      "light-green": "#606C38",
-      "dark-green": "#283618",
+      "light-green": "#BCBE94",
+      "dark-green": "#3A4E22",
+      "disabled-light-green" : "#777952",
+      "disabled-dark-green" : "#202D12",
     },
     extend: {
       spacing: {

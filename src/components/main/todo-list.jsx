@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Button from "../button";
 import EditItem from "./edit-item";
+import { useTheme } from "../../context/theme-context";
 const ToDoList = ({ listOfTasks, setListOfTasks }) => {
+  const { theme } = useTheme();
+
   const deleteTask = (task) => {
     const updatedList = listOfTasks.filter((item) => item !== task);
     setListOfTasks(updatedList);
@@ -20,12 +23,12 @@ const ToDoList = ({ listOfTasks, setListOfTasks }) => {
     // console.log(editingValue);
     setEditValue(editingValue);
   };
-  const handleSaveButton = (index,task) => {
+  const handleSaveButton = (index, task) => {
     listOfTasks.map(() => {
       if (editId === index) {
         console.log(typeof listOfTasks, listOfTasks);
-        const updatedList = listOfTasks.filter((item) => item !== task);        
-        return setListOfTasks([editValue,...updatedList]);
+        const updatedList = listOfTasks.filter((item) => item !== task);
+        return setListOfTasks([editValue, ...updatedList]);
       } else {
         return setListOfTasks(listOfTasks);
       }
@@ -46,13 +49,15 @@ const ToDoList = ({ listOfTasks, setListOfTasks }) => {
               inputDefaultValue={task}
               // inputEditedValue={task}
               inputOnChange={(e) => handleEditInput(e.target.value, index)}
-              saveButton={() => handleSaveButton(index,task)}
+              saveButton={() => handleSaveButton(index, task)}
             />
           ) : (
             <>
               <span
                 style={{ boxShadow: "5px 5px 15px 0px rgba(0,0,0,0.46)" }}
-                className="w-9/12 outline-0 bg-light-green rounded-lg flex justify-start items-center px-spacing-3"
+                className={`w-9/12 outline-0 rounded-lg flex justify-start items-center px-spacing-3 ${
+                  theme === "light" ? "bg-light-green" : "bg-dark-green"
+                }`}
               >
                 {task}
               </span>
