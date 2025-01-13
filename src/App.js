@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { CONTACT_US_ROUTE, HOME_ROUTE, LOGIN_ROUTE, NOT_FOUND_ROUTE, PAYMENT_RESULT_ROUTE, RESERVATION_ROUTE, RESERVED_LIST_ROUTE } from "./constant/rout";
+import { CONTACT_US_ROUTE, HOME_ROUTE, LOGIN_ROUTE, PAYMENT_RESULT_ROUTE, RESERVATION_ROUTE, RESERVED_LIST_ROUTE } from "./constant/rout";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import ReservedList from "./pages/reserved-list";
@@ -20,7 +20,7 @@ function App() {
         <Route path={RESERVATION_ROUTE} element={<Reservation/>} />
         <Route path={PAYMENT_RESULT_ROUTE} element={<PaymentResult/>} />
         <Route path={CONTACT_US_ROUTE} element={<ContactUs/>} />
-        <Route path={NOT_FOUND_ROUTE} element={<NotFound/>} />
+        <Route path={"*"} element={<NotFound/>} />
       </Routes>
     </>
   );

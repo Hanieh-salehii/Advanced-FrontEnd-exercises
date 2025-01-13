@@ -72,7 +72,7 @@ function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky" color="default">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -87,7 +87,7 @@ function Header() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "red",
               textDecoration: "none",
             }}
           >
@@ -101,7 +101,7 @@ function Header() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="blue"
             >
               <MenuIcon />
             </IconButton>
@@ -145,7 +145,7 @@ function Header() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "orange",
               textDecoration: "none",
             }}
           >
@@ -163,7 +163,7 @@ function Header() {
                 onClick={handleCloseNavMenu}
                 key={page.id}
                 size="large"
-                sx={{ my: 2, mx: 2, color: "white", display: "block" }}
+                sx={{ my: 2, mx: 2, color: "black", display: "block" }}
               >
                 <NavLink to={page.route}>{page.name}</NavLink>
               </Button>

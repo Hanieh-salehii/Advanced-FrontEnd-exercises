@@ -1,8 +1,9 @@
 import { Box, Grid2 } from "@mui/material";
 import RoomCard from "../components/RoomCard";
-import RomeImg from "../assets/images/rome-penthouse.webp"
-import SpaImg from "../assets/images/spa-penthouse.webp"
-import IndianImg from "../assets/images/india-penthouse.webp"
+import RomeImg from "../assets/images/rome-penthouse.webp";
+import SpaImg from "../assets/images/spa-penthouse.webp";
+import IndianImg from "../assets/images/india-penthouse.webp";
+import homeLobby from "../assets/images/lobby.webp";
 
 const RoomInfo = [
   {
@@ -46,13 +47,12 @@ const RoomInfo = [
 const Home = () => {
   return (
     <Box sx={{ width: "100%" }}>
-      <Grid2 container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid2 size={6}>Home page</Grid2>
-        <Grid2 size={6}>Hiiii </Grid2>
-      </Grid2>
+      <Grid2 container>
+        <Box component="img" src={homeLobby} alt="homeSlide" sx={{width:"100vw", height:"90vh", objectFit:"cover"}}/>
+              </Grid2>
       <Grid2 container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{justifyContent:"center"}} >
       {RoomInfo.map((room)=>(
-        <RoomCard key={room.id} title={room.title} subTitle={room.subTitle} content={room.content} img={room.img} featurs={room.features}/>
+        <RoomCard key={room.id} info={room} />
       ))}
       </Grid2>
     </Box>
