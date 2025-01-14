@@ -41,10 +41,10 @@ const ExpandMore = styled((props) => {
 
 const RoomCard = ({ info }) => {
   const roomDispatcher = useDispatch();
-  const handelReserve = (e, roomId) => {
-    console.log(roomId);
-    roomDispatcher(addItem(roomId))
-  }
+  const handelReserve = (e, roomInfo) => {
+    console.log(roomInfo);
+    roomDispatcher(addItem(roomInfo));
+  };
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -67,9 +67,25 @@ const RoomCard = ({ info }) => {
           width: "70%",
         }}
       >
-        <Box sx={{display:"flex", flexDirection:"row", justifyContent:"space-between"}}>
-        <CardHeader title={info.title} subheader={info.subTitle} />
-        <Button onClick={(e)=> {handelReserve(e,info.id)}} variant="outlined" size="medium" color="default" sx={{height:"fit-content", textTransform:"capitalize"}}>Reserve</Button>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <CardHeader title={info.title} subheader={info.subTitle} />
+          <Button
+            onClick={(e) => {
+              handelReserve(e, info);
+            }}
+            variant="outlined"
+            size="medium"
+            color="default"
+            sx={{ height: "fit-content", textTransform: "capitalize" }}
+          >
+            Reserve
+          </Button>
         </Box>
         <CardContent>
           <Typography variant="body2" sx={{ color: "text.secondary" }}>

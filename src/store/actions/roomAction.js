@@ -1,5 +1,5 @@
 export const ADD_ROOM = "add_room";
-export const addItem = (item) => ({
+export const addItem = (room) => ({
     type: ADD_ROOM,
-    payload: item,
+    payload: room,
 })

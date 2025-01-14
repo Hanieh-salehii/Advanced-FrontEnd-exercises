@@ -3,5 +3,5 @@ import roomReducer from "./roomReducer";
 
 const rootReducer = combineReducers({
     roomList: roomReducer
-})
+    })
 export default rootReducer;
