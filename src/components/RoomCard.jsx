@@ -39,7 +39,7 @@ const ExpandMore = styled((props) => {
   ],
 }));
 
-const RoomCard = ({ info }) => {
+const RoomCard = ({ info , type }) => {
   const roomDispatcher = useDispatch();
   const handelReserve = (e, roomInfo) => {
     console.log(roomInfo);
@@ -75,17 +75,28 @@ const RoomCard = ({ info }) => {
           }}
         >
           <CardHeader title={info.title} subheader={info.subTitle} />
-          <Button
-            onClick={(e) => {
-              handelReserve(e, info);
-            }}
-            variant="outlined"
-            size="medium"
-            color="default"
-            sx={{ height: "fit-content", textTransform: "capitalize" }}
-          >
-            Reserve
-          </Button>
+          {type === "reservedList" ? (
+            <Button
+              variant="outlined"
+              size="medium"
+              color="default"
+              sx={{ height: "fit-content", textTransform: "capitalize" }}
+            >
+              {`${info.count} rooms reserved`}
+            </Button>
+          ) : (
+            <Button
+              onClick={(e) => {
+                handelReserve(e, info);
+              }}
+              variant="outlined"
+              size="medium"
+              color="default"
+              sx={{ height: "fit-content", textTransform: "capitalize" }}
+            >
+              Reserve
+            </Button>
+          )}
         </Box>
         <CardContent>
           <Typography variant="body2" sx={{ color: "text.secondary" }}>

@@ -1,0 +1,1 @@
+export const STORAGE_ROOM_LIST = "shopList"

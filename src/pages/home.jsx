@@ -52,7 +52,7 @@ const Home = () => {
               </Grid2>
       <Grid2 container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} sx={{justifyContent:"center"}} >
       {RoomInfo.map((room)=>(
-        <RoomCard key={room.id} info={room} />
+        <RoomCard key={room.id} info={room} type={"resarvation"} />
       ))}
       </Grid2>
     </Box>
