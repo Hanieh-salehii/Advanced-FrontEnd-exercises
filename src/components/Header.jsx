@@ -18,6 +18,7 @@ import {
   LOGIN_ROUTE,
   RESERVATION_ROUTE,
   RESERVED_LIST_ROUTE,
+  SIGNIN_ROUTE,
 } from "../constant/rout";
 import { NavLink } from "react-router";
 
@@ -39,7 +40,6 @@ const pages = [
   },
 ];
 const settings = [
-  { id: 1, route: LOGIN_ROUTE, name: "Login" },
   {
     id: 2,
     route: RESERVED_LIST_ROUTE,
@@ -48,7 +48,12 @@ const settings = [
   {
     id: 3,
     route: LOGIN_ROUTE,
-    name: "Logout",
+    name: "Login",
+  },
+  {
+    id: 4,
+    route: SIGNIN_ROUTE,
+    name: "Signin",
   },
 ];
 

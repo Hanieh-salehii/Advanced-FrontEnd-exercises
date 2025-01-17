@@ -8,6 +8,8 @@ import Reservation from "./pages/reservation";
 import Header from "./components/Header";
 import PaymentResult from "./pages/payment-result";
 import ContactUs from "./pages/contact-us";
+import SignIn from "./pages/signin";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const location = useLocation();
@@ -17,16 +19,19 @@ function App() {
   return (
     <>
       {!isLoginSignin && <Header/>}
-      <Routes>
+    <div>
+    <Routes>
         <Route path={HOME_ROUTE} element={<Home/>} />
         <Route path={LOGIN_ROUTE} element={<Login/>} />
-        <Route path={SIGNIN_ROUTE} element={<Login/>} />
+        <Route path={SIGNIN_ROUTE} element={<SignIn/>} />
         <Route path={RESERVED_LIST_ROUTE} element={<ReservedList/>} />
         <Route path={RESERVATION_ROUTE} element={<Reservation/>} />
         <Route path={PAYMENT_RESULT_ROUTE} element={<PaymentResult/>} />
         <Route path={CONTACT_US_ROUTE} element={<ContactUs/>} />
         <Route path={"*"} element={<NotFound/>} />
       </Routes>
+    </div>
+      <Toaster />
     </>
   );
 }

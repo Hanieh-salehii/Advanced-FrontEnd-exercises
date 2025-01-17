@@ -1,10 +1,8 @@
-import { Box, Button, Typography } from "@mui/material";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { Box,  Grid2, Typography } from "@mui/material";
 import * as yup from "yup";
 import { userUrl } from "../constant/api";
-import HandleHome from "../components/HandleHome";
-const MyForm = () => {
+import MyForm from "../components/MyForm";
+const SignIn = () => {
   const phonRegExp = /^(\+98|0)?9\d{9}$/;
   const schema = yup.object().shape({
     name: yup
@@ -19,15 +17,16 @@ const MyForm = () => {
       .string()
       .required("phone number is required!").matches(phonRegExp,"phone number is invalid!")
   });
-  const {
-    register,
-    handleSubmit,
-    // watch,
-    formState: { errors, isValid },
-  } = useForm({
-    resolver: yupResolver(schema),
-    mode:"onChange"
-  });
+
+  // const {
+  //   // register,
+  //   // handleSubmit,
+  //   // watch,
+  //   formState: { errors, isValid },
+  // } = useForm({
+  //   resolver: yupResolver(schema),
+  //   mode:"onChange"
+  // });
 
   const inputs = [
     {
@@ -57,62 +56,22 @@ const MyForm = () => {
 
   //   console.log(typeof inputs[1].name);
   return (
-    <>
+    <Grid2 container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Box
-        component={"form"}
-        onSubmit={handleSubmit(onSubmit)}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          margin: "auto",
-          width: { xs: "100%", sm: "50%" },
+          width: "95%",
+          mx: "auto",
+          height: "100vh",
+          alignContent: "center",
         }}
       >
-        {inputs.map((fields) => (
-          <Box
-            key={fields.id}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              mt: "12px",
-              textTransform: "capitalize !important",
-            }}
-          >
-            <label>{fields.name}</label>
-            <input
-              style={{
-                marginTop: "4px",
-                height: "28px",
-                borderRadius: "6px",
-                paddingLeft: "8px",
-                outline: "none",
-                border: "1px solid gray",
-              }}
-              {...register(fields.name)}
-              type={fields.type}
-            />
-            <Typography
-              variant="caption"
-              color="warning"
-              // sx={{ textTransform: "capitalize" }}
-            >
-              {errors[fields.name]?.message}
-            </Typography>
-          </Box>
-        ))}
-        <Button
-          type="submit"
-          variant="outlined"
-          color="default"
-          disabled = {!isValid}
-          sx={{ width: "fit-content", margin: "auto", mt: "12px" }}
-        >
-          submit
-        </Button>
+        <Typography variant="h5" sx={{ textAlign: "center" }}>
+          Signin page{" "}
+        </Typography>
+        <MyForm inputs={inputs} mySubmit={onSubmit} mySchema={schema}/>
       </Box>
-      <HandleHome/>
-    </>
+    </Grid2>
   );
 };
 
-export default MyForm;
+export default SignIn;
