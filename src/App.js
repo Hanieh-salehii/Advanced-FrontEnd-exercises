@@ -1,5 +1,5 @@
-import { Route, Routes } from "react-router";
-import { CONTACT_US_ROUTE, HOME_ROUTE, LOGIN_ROUTE, PAYMENT_RESULT_ROUTE, RESERVATION_ROUTE, RESERVED_LIST_ROUTE } from "./constant/rout";
+import { Route, Routes, useLocation } from "react-router";
+import { CONTACT_US_ROUTE, HOME_ROUTE, LOGIN_ROUTE, PAYMENT_RESULT_ROUTE, RESERVATION_ROUTE, RESERVED_LIST_ROUTE, SIGNIN_ROUTE } from "./constant/rout";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import ReservedList from "./pages/reserved-list";
@@ -10,12 +10,17 @@ import PaymentResult from "./pages/payment-result";
 import ContactUs from "./pages/contact-us";
 
 function App() {
+  const location = useLocation();
+  const isLoginSignin = location.pathname.includes(LOGIN_ROUTE)||location.pathname.includes(SIGNIN_ROUTE);
+  // console.log(isLoginSignin);
+  
   return (
     <>
-      <Header/>
+      {!isLoginSignin && <Header/>}
       <Routes>
         <Route path={HOME_ROUTE} element={<Home/>} />
         <Route path={LOGIN_ROUTE} element={<Login/>} />
+        <Route path={SIGNIN_ROUTE} element={<Login/>} />
         <Route path={RESERVED_LIST_ROUTE} element={<ReservedList/>} />
         <Route path={RESERVATION_ROUTE} element={<Reservation/>} />
         <Route path={PAYMENT_RESULT_ROUTE} element={<PaymentResult/>} />

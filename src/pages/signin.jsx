@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { userUrl } from "../constant/api";
+import HandleHome from "../components/HandleHome";
 const MyForm = () => {
   const phonRegExp = /^(\+98|0)?9\d{9}$/;
   const schema = yup.object().shape({
@@ -109,6 +110,7 @@ const MyForm = () => {
           submit
         </Button>
       </Box>
+      <HandleHome/>
     </>
   );
 };
