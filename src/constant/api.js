@@ -1,1 +1,1 @@
-export const userLoginFetch = "http://localhost:4000/users"
+export const userUrl = "http://localhost:4000/users"
